@@ -6,10 +6,11 @@ class QrCodesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      appBar: AppBarWidget(isHomeButtonActive: true),
       body: SafeArea(
           child: Column(
-        children: [AppBarWidget()],
+        children: [Container(color: Colors.black, height: 10, width: 10)],
       )),
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_shortener/gen/assets.gen.dart';
 import 'package:url_shortener/model/data_models.dart';
 import 'package:url_shortener/model/list_data.dart';
+import 'package:url_shortener/view/components/app_bar_widget.dart';
 import 'package:url_shortener/view/links_screen.dart';
 
 // ignore: must_be_immutable
@@ -24,42 +25,7 @@ class _LinksPageState extends State<LinksPage> {
     var textTheme = Theme.of(context).textTheme;
     return SafeArea(
         child: Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: const Color.fromARGB(240, 246, 246, 249),
-        toolbarHeight: 64,
-        title: Row(
-          children: [
-            Image.asset(Assets.images.logo.path),
-            const SizedBox(
-              width: 8,
-            ),
-            Image.asset(Assets.images.shortener.path),
-            Expanded(
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: InkWell(
-                  onTap: () {},
-                  child: ImageIcon(
-                    AssetImage(Assets.icons.search.path),
-                    size: 20,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              width: 8,
-            ),
-            InkWell(
-              onTap: () {},
-              child: ImageIcon(
-                AssetImage(Assets.icons.home.path),
-                size: 20,
-              ),
-            ),
-          ],
-        ),
-      ),
+      appBar: AppBarWidget(isHomeButtonActive: false),
       backgroundColor: const Color.fromARGB(240, 246, 246, 249),
       body: LinksScreen(
         size: size,
@@ -154,6 +120,7 @@ class _LinksPageState extends State<LinksPage> {
     ));
   }
 }
+
 
 
 

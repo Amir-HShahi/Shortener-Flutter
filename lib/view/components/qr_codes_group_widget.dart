@@ -52,7 +52,7 @@ class _DividerLineWidget extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: scaledHeight(1),
-      color: Colors.grey.withOpacity(0.2),
+        color: const Color(0xffF6F6F9),
     );
   }
 }

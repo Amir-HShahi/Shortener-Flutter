@@ -9,9 +9,6 @@ class ShowQrCodeModelWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        // style: ButtonStyle(
-        //   foregroundColor:
-        // ),
         onPressed: pressQrCodeModelHandler,
         child: Container(
           height: 90,

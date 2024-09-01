@@ -38,6 +38,7 @@ class QrCodesGroupWidget extends StatelessWidget {
           SizedBox(height: scaledHeight(16)),
           const _DividerLineWidget(),
           ShowQrCodeModelWidget(),
+          const _DividerLineWidget(),
         ],
       ),
     );

@@ -27,7 +27,7 @@ class QrCodeTileWidget extends StatelessWidget {
                     vertical: scaledHeight(10), horizontal: scaledWidth(10)),
                 decoration: BoxDecoration(
                     borderRadius:
-                        BorderRadius.all(Radius.circular(scaledHeight(8))),
+                    BorderRadius.all(Radius.circular(scaledHeight(8))),
                     border: Border.all(
                       width: scaledHeight(1),
                       color: const Color(0xffF6F6F9),

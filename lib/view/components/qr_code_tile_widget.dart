@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_shortener/utility.dart';
 
-class ShowQrCodeModelWidget extends StatelessWidget {
-  const ShowQrCodeModelWidget({super.key});
-
-  void pressQrCodeModelHandler() {}
+class QrCodeTileWidget extends StatelessWidget {
+  const QrCodeTileWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    void pressQrCodeModelHandler() {
+      Navigator.pushNamed(context, "/QrCodeDetailsScreen");
+    }
+
     return InkWell(
         onTap: pressQrCodeModelHandler,
         child: Container(

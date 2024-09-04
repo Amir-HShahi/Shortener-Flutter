@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_shortener/utility.dart';
-import 'package:url_shortener/view/components/show_qr_code_model_widget.dart';
+import 'package:url_shortener/view/components/qr_code_tile_widget.dart';
 
 class QrCodesGroupWidget extends StatelessWidget {
   const QrCodesGroupWidget({super.key});
@@ -37,7 +36,7 @@ class QrCodesGroupWidget extends StatelessWidget {
           ),
           SizedBox(height: scaledHeight(16)),
           const _DividerLineWidget(),
-          ShowQrCodeModelWidget(),
+          const QrCodeTileWidget(),
           const _DividerLineWidget(),
         ],
       ),

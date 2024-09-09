@@ -39,6 +39,7 @@ class AnalyticsScreen extends StatelessWidget {
                 ),
               ]),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -62,9 +63,6 @@ class AnalyticsScreen extends StatelessWidget {
                           stylePieChartSectionData(15, const Color(0xff92C2FE)),
                           stylePieChartSectionData(10, const Color(0xffF8AC39))
                         ], sectionsSpace: 0),
-                        swapAnimationDuration:
-                            const Duration(milliseconds: 150),
-                        swapAnimationCurve: Curves.linear, // Optional
                       ),
                     ),
                   ),
@@ -85,10 +83,71 @@ class AnalyticsScreen extends StatelessWidget {
                 ],
               ),
               SizedBox(height: scaledHeight(16)),
+              const _DeviceListTile(
+                  leadingColor: Color(0xff43E5A0),
+                  deviceName: "Desktop",
+                  clickShare: 30),
+              SizedBox(height: scaledHeight(8)),
+              const _DeviceListTile(
+                  leadingColor: Color(0xff00A383),
+                  deviceName: "Mobile",
+                  clickShare: 25),
+              SizedBox(height: scaledHeight(8)),
+              const _DeviceListTile(
+                  leadingColor: Color(0xff397CF8),
+                  deviceName: "Tablet",
+                  clickShare: 20),
+              SizedBox(height: scaledHeight(8)),
+              const _DeviceListTile(
+                  leadingColor: Color(0xff92C2FE),
+                  deviceName: "E-Reader",
+                  clickShare: 15),
+              SizedBox(height: scaledHeight(8)),
+              const _DeviceListTile(
+                  leadingColor: Color(0xffF8AC39),
+                  deviceName: "Other",
+                  clickShare: 10)
             ],
           ),
         ),
       )),
+    );
+  }
+}
+
+class _DeviceListTile extends StatelessWidget {
+  final Color leadingColor;
+  final String deviceName;
+  final double clickShare;
+  const _DeviceListTile(
+      {super.key,
+      required this.leadingColor,
+      required this.deviceName,
+      required this.clickShare});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          height: scaledHeight(8),
+          width: scaledHeight(8),
+          decoration: BoxDecoration(
+            color: leadingColor,
+            shape: BoxShape.circle,
+          ),
+        ),
+        SizedBox(width: scaledWidth(8)),
+        Text(deviceName,
+            style: GoogleFonts.manrope(
+                fontSize: scaledHeight(14), color: const Color(0xff686C8F))),
+        const Spacer(),
+        Text("${clickShare.toInt()}%",
+            style: GoogleFonts.manrope(
+                fontSize: scaledHeight(14), color: const Color(0xff686C8F)))
+      ],
     );
   }
 }

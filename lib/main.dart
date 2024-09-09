@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_shortener/routes.dart';
+import 'package:url_shortener/themes.dart';
 import 'package:url_shortener/utility.dart';
 import 'package:url_shortener/view/analytics_screen.dart';
 import 'package:url_shortener/view/qr_codes_screen.dart';
@@ -16,6 +17,8 @@ class MyApp extends StatelessWidget {
     initializeScreenData(context);
     return MaterialApp(
       home: const AnalyticsScreen(),
+      theme: themesData,
+
       routes: routesData,
     );
   }

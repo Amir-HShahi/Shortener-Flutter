@@ -77,10 +77,25 @@ class AnalyticsScreen extends StatelessWidget {
                               radius: scaledHeight(28),
                               color: const Color(0xffF8AC39))
                         ], sectionsSpace: 0),
-                        swapAnimationDuration: const Duration(milliseconds: 150),
+                        swapAnimationDuration:
+                            const Duration(milliseconds: 150),
                         swapAnimationCurve: Curves.linear, // Optional
                       ),
                     ),
+                  ),
+                  Column(
+                    children: [
+                      Text("459",
+                          style: GoogleFonts.manrope(
+                              fontSize: scaledHeight(24),
+                              fontWeight: FontWeight.bold,
+                              color: const Color(0xff181820))),
+                      Text("clicks and scans",
+                          style: GoogleFonts.manrope(
+                              fontSize: scaledHeight(12),
+                              fontWeight: FontWeight.bold,
+                              color: const Color(0xff686C8F)))
+                    ],
                   )
                 ],
               )

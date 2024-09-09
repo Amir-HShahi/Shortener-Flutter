@@ -8,6 +8,11 @@ import 'components/app_bar_widget.dart';
 class AnalyticsScreen extends StatelessWidget {
   const AnalyticsScreen({super.key});
 
+  PieChartSectionData stylePieChartSectionData(double value, Color color) {
+    return PieChartSectionData(
+        value: value, showTitle: false, radius: scaledHeight(28), color: color);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,31 +56,11 @@ class AnalyticsScreen extends StatelessWidget {
                       height: scaledHeight(220),
                       child: PieChart(
                         PieChartData(sections: [
-                          PieChartSectionData(
-                              value: 30,
-                              showTitle: false,
-                              radius: scaledHeight(28),
-                              color: const Color(0xff43E5A0)),
-                          PieChartSectionData(
-                              value: 25,
-                              showTitle: false,
-                              radius: scaledHeight(28),
-                              color: const Color(0xff00A383)),
-                          PieChartSectionData(
-                              value: 20,
-                              showTitle: false,
-                              radius: scaledHeight(28),
-                              color: const Color(0xff1B48DA)),
-                          PieChartSectionData(
-                              value: 15,
-                              showTitle: false,
-                              radius: scaledHeight(28),
-                              color: const Color(0xff92C2FE)),
-                          PieChartSectionData(
-                              value: 10,
-                              showTitle: false,
-                              radius: scaledHeight(28),
-                              color: const Color(0xffF8AC39))
+                          stylePieChartSectionData(30, const Color(0xff43E5A0)),
+                          stylePieChartSectionData(25, const Color(0xff00A383)),
+                          stylePieChartSectionData(20, const Color(0xff1B48DA)),
+                          stylePieChartSectionData(15, const Color(0xff92C2FE)),
+                          stylePieChartSectionData(10, const Color(0xffF8AC39))
                         ], sectionsSpace: 0),
                         swapAnimationDuration:
                             const Duration(milliseconds: 150),
@@ -98,7 +83,8 @@ class AnalyticsScreen extends StatelessWidget {
                     ],
                   )
                 ],
-              )
+              ),
+              SizedBox(height: scaledHeight(16)),
             ],
           ),
         ),

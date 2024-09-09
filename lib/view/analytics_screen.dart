@@ -120,8 +120,7 @@ class _DeviceListTile extends StatelessWidget {
   final String deviceName;
   final double clickShare;
   const _DeviceListTile(
-      {super.key,
-      required this.leadingColor,
+      {required this.leadingColor,
       required this.deviceName,
       required this.clickShare});
 

@@ -10,7 +10,7 @@ class QrCodesGroupWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(vertical: scaledWidth(16)),
+      padding: EdgeInsets.symmetric(vertical: scaledHeight(16)),
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: const BorderRadius.all(Radius.circular(12)),

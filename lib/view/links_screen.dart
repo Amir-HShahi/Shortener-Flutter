@@ -1,9 +1,10 @@
+import 'package:expandable_text/expandable_text.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:url_shortener/gen/assets.gen.dart';
-import 'package:url_shortener/model/list_data.dart';
-import 'package:url_shortener/view/components/my_component.dart';
+import 'package:sortenet/models/list_data.dart';
+import 'package:sortenet/my_component.dart';
 
-class LinksScreen extends StatelessWidget {
+class LinksScreen extends StatefulWidget {
   const LinksScreen({
     super.key,
     required this.size,
@@ -13,6 +14,13 @@ class LinksScreen extends StatelessWidget {
   final Size size;
   final TextTheme textTheme;
 
+  
+
+  @override
+  State<LinksScreen> createState() => _LinksScreenState();
+}
+
+class _LinksScreenState extends State<LinksScreen> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -36,11 +44,11 @@ class LinksScreen extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(20, 16, 0, 16),
                   child: Text(
                     "Links",
-                    style: textTheme.titleLarge,
+                    style: widget.textTheme.titleLarge,
                   ),
                 ),
                 const ShortenerDivider(),
-                LinkList(size: size, textTheme: textTheme),
+                LinkList(size: widget.size, textTheme: widget.textTheme),
               ],
             ),
           ),
@@ -67,11 +75,14 @@ class LinkList extends StatelessWidget {
           maxHeight: size.height / 1.4, minHeight: size.height / 9.63),
       child: linkModel.isEmpty
           ? Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("empty",style: textTheme.headlineSmall,),
-            ],
-          )
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "empty",
+                  style: textTheme.headlineSmall,
+                ),
+              ],
+            )
           : ListView.builder(
               physics: const ClampingScrollPhysics(),
               shrinkWrap: true,
@@ -85,33 +96,79 @@ class LinkList extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                linkModel[index].companyName,
-                                style: textTheme.titleSmall,
-                              ),
-                              const SizedBox(
-                                height: 8,
-                              ),
-                              Text(
-                                linkModel[index].link,
-                                style: textTheme.bodySmall,
-                              ),
-                            ],
+                          SizedBox(
+                            width: size.width / 1.57,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  linkModel[index].companyName,
+                                  style: textTheme.labelMedium,
+                                ),
+                                const SizedBox(
+                                  height: 8,
+                                ),
+                                ExpandableText(
+                                  linkModel[index].link,
+                                  style: textTheme.bodySmall,
+                                  expandText: "",
+                                  collapseText: "less",
+                                  maxLines: 1,
+                                )
+                              ],
+                            ),
                           ),
-                          Column(
-                            children: [
-                              Image.asset(Assets.images.chart.path),
-                              const SizedBox(
-                                height: 8,
-                              ),
-                              Text(
-                                "53 clicks",
-                                style: textTheme.bodyMedium,
-                              ),
-                            ],
+                          SizedBox(
+                            width: size.width / 6.23,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  width: 64,
+                                  height: 24,
+                                  child: LineChart(
+                                    LineChartData(
+                                      gridData: const FlGridData(show: false),
+                                      titlesData: const FlTitlesData(show: false),
+                                      borderData: FlBorderData(show: false),
+                                      lineBarsData: [
+                                        LineChartBarData(
+                                          spots: [
+                                            const FlSpot(0, 1),
+                                            const FlSpot(1, 10),
+                                            const FlSpot(2, 2),
+                                            const FlSpot(3, 4),
+                                            const FlSpot(4, 1),
+                                          ],
+                                          isCurved: true,
+                                          color: const Color.fromARGB(
+                                              154, 67, 229, 170),
+                                          dotData: const FlDotData(show: false),
+                                          belowBarData: BarAreaData(
+                                              show: true,
+                                              gradient: const LinearGradient(
+                                                begin: Alignment.topCenter,
+                                                end: Alignment.bottomCenter,
+                                                colors: [
+                                                  Color.fromARGB(
+                                                      100, 67, 229, 170),
+                                                  Color.fromARGB(
+                                                      0, 67, 229, 170),
+                                                ],
+                                              )),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 8,
+                                ),
+                                Text(
+                                  "53 clicks",
+                                  style: textTheme.bodyMedium,
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),

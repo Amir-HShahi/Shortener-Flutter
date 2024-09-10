@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:url_shortener/gen/assets.gen.dart';
-import 'package:url_shortener/model/data_models.dart';
-import 'package:url_shortener/model/list_data.dart';
-import 'package:url_shortener/view/components/app_bar_widget.dart';
-import 'package:url_shortener/view/links_screen.dart';
+import 'package:sortenet/gen/assets.gen.dart';
+import 'package:sortenet/models/data_models.dart';
+import 'package:sortenet/models/list_data.dart';
+import 'package:sortenet/view/components/app_bar_widget.dart';
+import 'package:sortenet/view/links_screen.dart';
 
 // ignore: must_be_immutable
 class LinksPage extends StatefulWidget {
-
   const LinksPage({super.key});
 
   @override
@@ -19,13 +18,15 @@ class _LinksPageState extends State<LinksPage> {
 
   TextEditingController companyLink = TextEditingController();
 
+
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     var textTheme = Theme.of(context).textTheme;
     return SafeArea(
         child: Scaffold(
-      appBar: AppBarWidget(isHomeButtonActive: false),
+      appBar: const AppBarWidget(),
       backgroundColor: const Color.fromARGB(240, 246, 246, 249),
       body: LinksScreen(
         size: size,
@@ -75,22 +76,22 @@ class _LinksPageState extends State<LinksPage> {
                                 onPressed: () {
                                   setState(() {
                                     if (companyName.text.isNotEmpty &&
-                                      companyLink.text.isNotEmpty) {
-                                    linkModel.add(LinkModel(
-                                        companyName: companyName.text,
-                                        link: companyLink.text));
-                                    companyName.clear();
-                                    companyLink.clear();
-                                  } else {
-                                    ScaffoldMessenger.of(context)
-                                        .showSnackBar(SnackBar(
-                                      content: Text(
-                                        "Text is empty",
-                                        style: textTheme.displayMedium,
-                                      ),
-                                    ));
-                                  }
-                                  Navigator.pop(context);
+                                        companyLink.text.isNotEmpty) {
+                                      linkModel.add(LinkModel(
+                                          companyName: companyName.text,
+                                          link: companyLink.text));
+                                      companyName.clear();
+                                      companyLink.clear();
+                                    } else {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(SnackBar(
+                                        content: Text(
+                                          "Text is empty",
+                                          style: textTheme.displayMedium,
+                                        ),
+                                      ));
+                                    }
+                                    Navigator.pop(context);
                                   });
                                 },
                                 child: Text("Create",
@@ -120,9 +121,6 @@ class _LinksPageState extends State<LinksPage> {
     ));
   }
 }
-
-
-
 
 class BottomSheetTextField extends StatelessWidget {
   const BottomSheetTextField({

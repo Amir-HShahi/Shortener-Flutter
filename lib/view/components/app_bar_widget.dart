@@ -1,53 +1,70 @@
 import 'package:flutter/material.dart';
-import 'package:url_shortener/utility.dart';
+import 'package:sortenet/gen/assets.gen.dart';
+import 'package:sortenet/view/dashboard.dart';
 
 class AppBarWidget extends PreferredSize {
-  final bool isHomeButtonActive;
-  AppBarWidget({super.key, required this.isHomeButtonActive})
+  const AppBarWidget({super.key})
       : super(
-            preferredSize: Size(double.infinity, scaledHeight(60)),
-            child: MyAppBar(isHomeButtonActive: isHomeButtonActive));
+            preferredSize: const Size(double.infinity, 64),
+            child: const MyAppBar());
 }
 
-class MyAppBar extends StatelessWidget {
-  final bool isHomeButtonActive;
-  const MyAppBar({super.key, required this.isHomeButtonActive});
-  void pressHomeButtonHandler() {
-    //push to home screen
+class MyAppBar extends StatefulWidget {
+  const MyAppBar({super.key});
+
+  @override
+  State<MyAppBar> createState() => _MyAppBarState();
+}
+
+class _MyAppBarState extends State<MyAppBar> {
+  // void searchHandler() {}
+  void dashboardPageHandler() {
+    Navigator.of(context).pushReplacement(MaterialPageRoute(
+      builder: (context) => const Dashboard(),
+    ));
   }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        height: scaledHeight(64),
-        width: double.infinity,
-        color: Colors.white,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(width: scaledWidth(16)),
-            Image(
-                image: const AssetImage("assets/images/app_bar_icon.png"),
-                height: scaledHeight(32)),
-            SizedBox(width: scaledWidth(8)),
-            Image(
-                image: const AssetImage("assets/images/app_bar_typo_icon.png"),
-                height: scaledHeight(22)),
-            const Spacer(),
-            isHomeButtonActive
-                ? GestureDetector(
-                    onTap: pressHomeButtonHandler,
-                    child: Image(
-                        image: const AssetImage(
-                            "assets/images/home_screen_button.png"),
-                        height: scaledHeight(18)),
-                  )
-                : const SizedBox(),
-            SizedBox(width: scaledWidth(16))
-          ],
-        ),
+    return AppBar(
+      elevation: 0,
+      backgroundColor: const Color.fromARGB(240, 246, 246, 249),
+      toolbarHeight: 64,
+      title: Row(
+        children: [
+          Image.asset(Assets.images.logo.path),
+          const SizedBox(
+            width: 8,
+          ),
+          Image.asset(Assets.images.shortener.path),
+          // Expanded(
+          //   child: Align(
+          //     alignment: Alignment.centerRight,
+          //     child: InkWell(
+          //       onTap: searchHandler,
+          //       child: ImageIcon(
+          //         AssetImage(Assets.icons.search.path),
+          //         size: 20,
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          const SizedBox(
+            width: 8,
+          ),
+          Expanded(
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: InkWell(
+                onTap: dashboardPageHandler,
+                child: ImageIcon(
+                  AssetImage(Assets.icons.home.path),
+                  size: 20,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

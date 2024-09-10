@@ -1,25 +1,39 @@
-/// GENERATED CODE - DO NOT MODIFY BY HAND
-/// *****************************************************
-///  FlutterGen
-/// *****************************************************
-
-// coverage:ignore-file
-// ignore_for_file: type=lint
-// ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
 
 import 'package:flutter/widgets.dart';
 
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/Analytics.png
+  AssetGenImage get analytics =>
+      const AssetGenImage('assets/icons/Analytics.png');
+
+  /// File path: assets/icons/QRCode.png
+  AssetGenImage get qRCode => const AssetGenImage('assets/icons/QRCode.png');
+
+  /// File path: assets/icons/Settings.png
+  AssetGenImage get settings =>
+      const AssetGenImage('assets/icons/Settings.png');
+
+  /// File path: assets/icons/Support.png
+  AssetGenImage get support => const AssetGenImage('assets/icons/Support.png');
+
+  /// File path: assets/icons/arrow_right.png
+  AssetGenImage get arrowRight =>
+      const AssetGenImage('assets/icons/arrow_right.png');
+
   /// File path: assets/icons/home.png
   AssetGenImage get home => const AssetGenImage('assets/icons/home.png');
+
+  /// File path: assets/icons/links.png
+  AssetGenImage get links => const AssetGenImage('assets/icons/links.png');
 
   /// File path: assets/icons/search.png
   AssetGenImage get search => const AssetGenImage('assets/icons/search.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [home, search];
+  List<AssetGenImage> get values =>
+      [analytics, qRCode, settings, support, arrowRight, home, links, search];
 }
 
 class $AssetsImagesGen {

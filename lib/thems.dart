@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-var themesData = ThemeData(
+var themsData = ThemeData(
     fontFamily: "manrope",
     textTheme: const TextTheme(
       titleLarge: TextStyle(
@@ -16,6 +16,11 @@ var themesData = ThemeData(
       titleSmall: TextStyle(
           fontFamily: "manrope",
           fontSize: 16,
+          fontWeight: FontWeight.w500,
+          color: Color.fromARGB(240, 52, 52, 70)),
+      labelMedium: TextStyle(
+          fontFamily: "manrope",
+          fontSize: 18,
           fontWeight: FontWeight.w500,
           color: Color.fromARGB(240, 52, 52, 70)),
       bodyMedium: TextStyle(
@@ -36,16 +41,16 @@ var themesData = ThemeData(
       displaySmall: TextStyle(
           fontFamily: "manrope",
           fontSize: 12,
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w700,
           color: Color.fromARGB(234, 104, 108, 143)),
       headlineMedium: TextStyle(
           fontFamily: "manrope",
-          fontSize: 14,
+          fontSize: 13,
           fontWeight: FontWeight.w500,
           color: Color.fromARGB(237, 83, 85, 118)),
       headlineSmall: TextStyle(
           fontFamily: "manrope",
-          fontSize: 13,
+          fontSize: 12,
           fontWeight: FontWeight.w500,
           color: Colors.grey),
       labelSmall: TextStyle(

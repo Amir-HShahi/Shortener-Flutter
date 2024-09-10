@@ -5,5 +5,6 @@ class LinkModel {
   LinkModel({
     required this.companyName,
     required this.link,
-    });
+  });
 }
+

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:url_shortener/routes.dart';
-import 'package:url_shortener/themes.dart';
-import 'package:url_shortener/utility.dart';
-import 'package:url_shortener/view/qr_codes_screen.dart';
+import 'package:sortenet/thems.dart';
+import 'package:sortenet/view/dashboard.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,13 +9,14 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    initializeScreenData(context);
     return MaterialApp(
-      home: const QrCodesScreen(),
-      theme: themesData,
-      routes: routesData,
+      debugShowCheckedModeBanner: false,
+      theme: themsData,
+      home: const Dashboard(),
     );
   }
 }
+

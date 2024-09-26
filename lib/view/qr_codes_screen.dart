@@ -16,7 +16,9 @@ class QrCodesScreen extends StatelessWidget {
             width: double.infinity,
             padding: EdgeInsets.all(scaledWidth(16)),
             child: Column(
-                    children: [QrCodesGroupWidget(),],
+                    children: [
+                      QrCodesGroupWidget()
+                    ],
                   ),
           )),
     );

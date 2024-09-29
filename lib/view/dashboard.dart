@@ -23,7 +23,6 @@ class _DashboardState extends State<Dashboard> {
     ));
   }
 
-  void qrCodesPageHandler() {}
   void supportPageHandler() {}
   void settingsPageHandler() {}
 
@@ -32,6 +31,11 @@ class _DashboardState extends State<Dashboard> {
     void analyticsPageHandler() {
       Navigator.pushNamed(context, "/AnalyticsScreen");
     }
+
+    void qrCodesPageHandler() {
+      Navigator.pushNamed(context, "/QrCodesScreen");
+    }
+
 
     var size = MediaQuery.of(context).size;
     var textTheme = Theme.of(context).textTheme;

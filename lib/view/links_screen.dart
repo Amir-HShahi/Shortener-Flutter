@@ -104,14 +104,14 @@ class LinkList extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            linkModel[index].companyName,
+                            linkModel[index].name,
                             style: textTheme.labelMedium,
                           ),
                           const SizedBox(
                             height: 8,
                           ),
                           ExpandableText(
-                            linkModel[index].link,
+                            linkModel[index].address,
                             style: textTheme.bodySmall,
                             expandText: "",
                             collapseText: "less",

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../gen/assets.gen.dart';
-import '../model/data_models.dart';
+import '../model/link_model.dart';
 import '../model/list_data.dart';
 import 'components/app_bar_widget.dart';
 import 'links_screen.dart';
@@ -79,8 +79,9 @@ class _LinksPageState extends State<LinksPage> {
                                         if (companyName.text.isNotEmpty &&
                                             companyLink.text.isNotEmpty) {
                                           linkModel.add(LinkModel(
-                                              companyName: companyName.text,
-                                              link: companyLink.text));
+                                              id: 616,
+                                              name: companyName.text,
+                                              address: companyLink.text));
                                           companyName.clear();
                                           companyLink.clear();
                                         } else {

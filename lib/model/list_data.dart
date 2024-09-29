@@ -1,5 +1,5 @@
 import 'package:fl_chart/fl_chart.dart';
-import 'data_models.dart';
+import 'link_model.dart';
 
 List<LinkModel> linkModel = [];
 

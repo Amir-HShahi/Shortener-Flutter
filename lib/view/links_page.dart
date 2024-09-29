@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_shortener/services/http_handler.dart';
 
 import '../gen/assets.gen.dart';
 import '../model/link_model.dart';
@@ -17,11 +18,10 @@ class LinksPage extends StatefulWidget {
 class _LinksPageState extends State<LinksPage> {
   TextEditingController companyName = TextEditingController();
 
-  TextEditingController companyLink = TextEditingController();
+  TextEditingController companyAddress = TextEditingController();
 
 
-
-  @override
+    @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     var textTheme = Theme.of(context).textTheme;
@@ -58,7 +58,7 @@ class _LinksPageState extends State<LinksPage> {
                             ),
                             BottomSheetTextField(
                               lableText: "link",
-                              controller: companyLink,
+                              controller: companyAddress,
                             ),
 
                             // button bottom sheet
@@ -77,13 +77,15 @@ class _LinksPageState extends State<LinksPage> {
                                     onPressed: () {
                                       setState(() {
                                         if (companyName.text.isNotEmpty &&
-                                            companyLink.text.isNotEmpty) {
+                                            companyAddress.text.isNotEmpty) {
+
                                           linkModel.add(LinkModel(
                                               id: 616,
                                               name: companyName.text,
-                                              address: companyLink.text));
+                                              address: companyAddress.text));
+                                          shortenURL(companyName.text, companyAddress.text);
                                           companyName.clear();
-                                          companyLink.clear();
+                                          companyAddress.clear();
                                         } else {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(SnackBar(

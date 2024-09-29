@@ -12,12 +12,14 @@ class AppBarWidget extends PreferredSize {
 class MyAppBar extends StatelessWidget {
   final bool isHomeButtonActive;
   const MyAppBar({super.key, required this.isHomeButtonActive});
-  void pressHomeButtonHandler() {
-    //push to home screen
-  }
 
   @override
   Widget build(BuildContext context) {
+
+    void pressHomeButtonHandler() {
+      Navigator.pushNamed(context, "/DashboardScreen");
+    }
+
     return SafeArea(
       child: Container(
         height: scaledHeight(64),

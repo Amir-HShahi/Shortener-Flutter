@@ -2,6 +2,7 @@ import 'package:expandable_text/expandable_text.dart';
 import 'package:fl_chart/fl_chart.dart';
 
 import 'package:flutter/material.dart';
+import 'package:url_shortener/view_model/link_view_model.dart';
 
 import '../model/list_data.dart';
 import 'components/my_component.dart';
@@ -75,7 +76,7 @@ class LinkList extends StatelessWidget {
     return ConstrainedBox(
       constraints: BoxConstraints(
           maxHeight: size.height / 1.4, minHeight: size.height / 9.63),
-      child: linkModel.isEmpty
+      child: LinkViewModel.links.isEmpty
           ? Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -88,7 +89,7 @@ class LinkList extends StatelessWidget {
           : ListView.builder(
         physics: const ClampingScrollPhysics(),
         shrinkWrap: true,
-        itemCount: linkModel.length,
+        itemCount: LinkViewModel.links.length,
         scrollDirection: Axis.vertical,
         itemBuilder: (context, index) {
           return Column(
@@ -104,14 +105,14 @@ class LinkList extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            linkModel[index].name,
+                            LinkViewModel.links[index].name,
                             style: textTheme.labelMedium,
                           ),
                           const SizedBox(
                             height: 8,
                           ),
                           ExpandableText(
-                            linkModel[index].address,
+                            LinkViewModel.links[index].address,
                             style: textTheme.bodySmall,
                             expandText: "",
                             collapseText: "less",
@@ -175,7 +176,7 @@ class LinkList extends StatelessWidget {
                   ],
                 ),
               ),
-              if (index != linkModel.length - 1)
+              if (index != LinkViewModel.links.length - 1)
                 (const ShortenerDivider()),
             ],
           );

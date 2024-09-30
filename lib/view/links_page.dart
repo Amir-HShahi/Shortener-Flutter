@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_shortener/services/http_handler.dart';
 
 import '../gen/assets.gen.dart';
-import '../model/link_model.dart';
-import '../model/list_data.dart';
+import '../view_model/link_view_model.dart';
 import 'components/app_bar_widget.dart';
 import 'links_screen.dart';
 
@@ -23,6 +22,7 @@ class _LinksPageState extends State<LinksPage> {
 
     @override
   Widget build(BuildContext context) {
+      LinkViewModel.updateLinks();
     var size = MediaQuery.of(context).size;
     var textTheme = Theme.of(context).textTheme;
     return SafeArea(
@@ -79,11 +79,7 @@ class _LinksPageState extends State<LinksPage> {
                                         if (companyName.text.isNotEmpty &&
                                             companyAddress.text.isNotEmpty) {
 
-                                          linkModel.add(LinkModel(
-                                              id: 616,
-                                              name: companyName.text,
-                                              address: companyAddress.text));
-                                          shortenURL(companyName.text, companyAddress.text);
+                                          shortenLink(companyName.text, companyAddress.text);
                                           companyName.clear();
                                           companyAddress.clear();
                                         } else {

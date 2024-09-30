@@ -1,7 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'link_model.dart';
 
-List<LinkModel> linkModel = [];
+// List<LinkModel> linkModel = [];
 
 List<FlSpot> chartData = [
   const FlSpot( 0, 0),

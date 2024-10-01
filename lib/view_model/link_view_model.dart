@@ -10,10 +10,10 @@ class LinkViewModel with ChangeNotifier {
     String linksAsJson = "damn it";
     await fetchLinks().then((value) => {linksAsJson = value});
 
-    // list.map((object) => LinkModel.fromJson(json.decode(object))).toList()
-    Iterable l = json.decode(linksAsJson);
-    List<LinkModel> fetchedLinks =
-        List<LinkModel>.from(l.map((model) => LinkModel.fromJson(model)));
-    links = fetchedLinks;
+    var l = jsonDecode(linksAsJson) as List;
+    links.removeRange(0, links.length);
+    for(var gg in l.reversed) {
+      links.add(LinkModel(name: "${gg["number"]}", address: gg["url"]));
+    }
   }
 }

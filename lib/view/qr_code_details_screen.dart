@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-import 'package:url_shortener/view/components/save_qr_code_button.dart';
+import 'package:url_shortener/view/components/customized_floating_button.dart';
 
 import '../utility.dart';
 import 'components/app_bar_widget.dart';
@@ -8,13 +8,18 @@ import 'components/app_bar_widget.dart';
 class QrCodeDetailsScreen extends StatelessWidget {
   const QrCodeDetailsScreen({super.key});
 
+  void saveToGalleryHandler() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(isHomeButtonActive: false),
       backgroundColor: const Color(0xfff8f9fa),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: const SaveQrCodeButton(),
+      floatingActionButton: CustomizedFloatingButton(
+          buttonIcon: Icons.download_rounded,
+          title: "Save to gallery",
+          onTap: saveToGalleryHandler),
       body: SafeArea(
         child: Column(
           children: [

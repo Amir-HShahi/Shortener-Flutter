@@ -6,7 +6,6 @@ import '../view_model/link_view_model.dart';
 import 'components/app_bar_widget.dart';
 import 'links_screen.dart';
 
-// ignore: must_be_immutable
 class LinksPage extends StatefulWidget {
   const LinksPage({super.key});
 

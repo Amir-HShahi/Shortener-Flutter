@@ -2,14 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_shortener/utility.dart';
 
-class SaveQrCodeButton extends StatelessWidget {
-  const SaveQrCodeButton({super.key});
-  void saveToGalleryHandler() {}
+class CustomizedFloatingButton extends StatelessWidget {
+  final IconData buttonIcon;
+  final String title;
+  final Function() onTap;
+  const CustomizedFloatingButton(
+      {super.key,
+      required this.buttonIcon,
+      required this.title,
+      required this.onTap});
+
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: saveToGalleryHandler,
+      onTap: onTap,
       child: Container(
         height: scaledHeight(40),
         width: scaledWidth(345),
@@ -21,11 +28,13 @@ class SaveQrCodeButton extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.add, size: scaledHeight(20), color: Colors.white),
+            Icon(buttonIcon, size: scaledHeight(20), color: Colors.white),
             SizedBox(width: scaledWidth(4)),
-            Text("Add to gallery",
+            Text(title,
                 style: GoogleFonts.manrope(
-                    fontSize: 14, fontWeight: FontWeight.w700, color: Colors.white))
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white))
           ],
         ),
       ),

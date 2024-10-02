@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:url_shortener/providers.dart';
 import 'package:url_shortener/routes.dart';
 import 'package:url_shortener/themes.dart';
 import 'package:url_shortener/utility.dart';
-import 'package:url_shortener/view/analytics_screen.dart';
+import 'package:url_shortener/view/dashboard.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: providersData, child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -15,9 +17,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     initializeScreenData(context);
     return MaterialApp(
-      home: const AnalyticsScreen(),
+      home: const Dashboard(),
       theme: themesData,
-
       routes: routesData,
     );
   }

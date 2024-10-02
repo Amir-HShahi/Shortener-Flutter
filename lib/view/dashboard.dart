@@ -23,13 +23,20 @@ class _DashboardState extends State<Dashboard> {
     ));
   }
 
-  void qrCodesPageHandler() {}
-  void analyticsPageHandler() {}
   void supportPageHandler() {}
   void settingsPageHandler() {}
 
   @override
   Widget build(BuildContext context) {
+    void analyticsPageHandler() {
+      Navigator.pushNamed(context, "/AnalyticsScreen");
+    }
+
+    void qrCodesPageHandler() {
+      Navigator.pushNamed(context, "/QrCodesScreen");
+    }
+
+
     var size = MediaQuery.of(context).size;
     var textTheme = Theme.of(context).textTheme;
 

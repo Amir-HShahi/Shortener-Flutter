@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_shortener/utility.dart';
+import 'package:url_shortener/view/qr_code_details_screen.dart';
+
+import '../../model/qr_code_model.dart';
 
 class QrCodeTileWidget extends StatelessWidget {
-  const QrCodeTileWidget({super.key});
+  final QrCodeModel qrCodeModel;
+  const QrCodeTileWidget({super.key, required this.qrCodeModel});
 
   @override
   Widget build(BuildContext context) {
     void pressQrCodeModelHandler() {
-      Navigator.pushNamed(context, "/QrCodeDetailsScreen");
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) => QrCodeDetailsScreen(qrCodeModel: qrCodeModel)));
     }
 
     return InkWell(
@@ -42,13 +46,13 @@ class QrCodeTileWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Company Site",
+                  Text(qrCodeModel.name,
                       style: GoogleFonts.manrope(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
                           color: const Color(0xff343446))),
                   SizedBox(height: scaledHeight(4)),
-                  Text("https://companysite.com.br",
+                  Text(qrCodeModel.address,
                       style: GoogleFonts.manrope(
                           fontSize: 14,
                           fontWeight: FontWeight.w700,

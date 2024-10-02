@@ -8,10 +8,12 @@ import 'components/customized_floating_button.dart';
 class QrCodesScreen extends StatelessWidget {
   const QrCodesScreen({super.key});
 
-  void createQrCodeHandler() {}
-
   @override
   Widget build(BuildContext context) {
+    void createQrCodeHandler() {
+      Navigator.pushNamed(context, "/CreateQrCodeScreen");
+    }
+
     return Scaffold(
       appBar: AppBarWidget(isHomeButtonActive: true),
       backgroundColor: const Color(0xfff8f9fa),
@@ -22,14 +24,12 @@ class QrCodesScreen extends StatelessWidget {
           onTap: createQrCodeHandler),
       body: SafeArea(
           child: Container(
-            width: double.infinity,
-            padding: EdgeInsets.all(scaledWidth(16)),
-            child: const Column(
-                    children: [
-                      QrCodesGroupWidget()
-                    ],
-                  ),
-          )),
+        width: double.infinity,
+        padding: EdgeInsets.all(scaledWidth(16)),
+        child: const Column(
+          children: [QrCodesGroupWidget()],
+        ),
+      )),
     );
   }
 }

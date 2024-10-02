@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_shortener/services/http_handler.dart';
+import 'package:url_shortener/view/components/customized_text_field.dart';
 
 import '../gen/assets.gen.dart';
 import '../view_model/link_view_model.dart';
@@ -52,12 +53,12 @@ class _LinksPageState extends State<LinksPage> {
                     height: size.height / 4,
                     child: Column(
                       children: [
-                        BottomSheetTextField(
-                          lableText: "company",
+                        CustomizedTextField(
+                          labelText: "company",
                           controller: companyName,
                         ),
-                        BottomSheetTextField(
-                          lableText: "link",
+                        CustomizedTextField(
+                          labelText: "link",
                           controller: companyAddress,
                         ),
 
@@ -82,7 +83,8 @@ class _LinksPageState extends State<LinksPage> {
                                           companyAddress.text);
                                       companyName.clear();
                                       companyAddress.clear();
-                                      var viewModel = context.read<LinkViewModel>();
+                                      var viewModel =
+                                          context.read<LinkViewModel>();
                                       viewModel.updateLinks();
                                     } else {
                                       ScaffoldMessenger.of(context)
@@ -121,41 +123,5 @@ class _LinksPageState extends State<LinksPage> {
             )),
       ),
     ));
-  }
-}
-
-class BottomSheetTextField extends StatelessWidget {
-  const BottomSheetTextField({
-    super.key,
-    required this.lableText,
-    required this.controller,
-  });
-
-  final String lableText;
-  final TextEditingController controller;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 20, right: 12, left: 12),
-      child: TextField(
-        controller: controller,
-        textDirection: TextDirection.ltr,
-        decoration: InputDecoration(
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(11),
-              borderSide: const BorderSide(width: 0, style: BorderStyle.none)),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(11),
-            borderSide: const BorderSide(
-                width: 2, color: Color.fromARGB(226, 27, 72, 218)),
-          ),
-          filled: true,
-          fillColor: Colors.white,
-          labelText: lableText,
-          labelStyle: Theme.of(context).textTheme.headlineSmall,
-        ),
-      ),
-    );
   }
 }

@@ -39,11 +39,11 @@ class QrCodesGroupWidget extends StatelessWidget {
             ),
           ),
           SizedBox(height: scaledHeight(16)),
-          for (QrCodeModel model in viewModel.qrCodes)
+          for (var model in viewModel.qrCodes)
             Column(
               children: [
                 const _DividerLineWidget(),
-                QrCodeTileWidget(name: model.name, address: model.address),
+                QrCodeTileWidget(qrCodeModel: model),
               ],
             ),
         ],

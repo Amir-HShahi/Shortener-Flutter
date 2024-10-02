@@ -3,7 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_shortener/utility.dart';
 
 class QrCodeTileWidget extends StatelessWidget {
-  const QrCodeTileWidget({super.key});
+  final String name;
+  final String address;
+  const QrCodeTileWidget({super.key, required this.name, required this.address});
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +44,13 @@ class QrCodeTileWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Company Site",
+                  Text(name,
                       style: GoogleFonts.manrope(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
                           color: const Color(0xff343446))),
                   SizedBox(height: scaledHeight(4)),
-                  Text("https://companysite.com.br",
+                  Text(address,
                       style: GoogleFonts.manrope(
                           fontSize: 14,
                           fontWeight: FontWeight.w700,

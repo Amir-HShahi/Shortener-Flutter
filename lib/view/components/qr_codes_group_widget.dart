@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:url_shortener/model/qr_code_model.dart';
 import 'package:url_shortener/utility.dart';
 import 'package:url_shortener/view/components/qr_code_tile_widget.dart';
+import 'package:url_shortener/view_model/qr_code_view_model.dart';
 
 class QrCodesGroupWidget extends StatelessWidget {
   const QrCodesGroupWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var viewModel = context.watch<QrCodeViewModel>();
     return Container(
       width: double.infinity,
       padding: EdgeInsets.symmetric(vertical: scaledHeight(16)),
@@ -30,14 +34,18 @@ class QrCodesGroupWidget extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: scaledWidth(16)),
             child: Text(
               "QR Codes",
-              style:
-                  GoogleFonts.manrope(fontSize: 18, fontWeight: FontWeight.bold),
+              style: GoogleFonts.manrope(
+                  fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
           SizedBox(height: scaledHeight(16)),
-          const _DividerLineWidget(),
-          const QrCodeTileWidget(),
-          const _DividerLineWidget(),
+          for (QrCodeModel model in viewModel.qrCodes)
+            Column(
+              children: [
+                const _DividerLineWidget(),
+                QrCodeTileWidget(name: model.name, address: model.address),
+              ],
+            ),
         ],
       ),
     );
@@ -52,8 +60,7 @@ class _DividerLineWidget extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: scaledHeight(1),
-        color: const Color(0xffF6F6F9),
+      color: const Color(0xffF6F6F9),
     );
   }
 }
-

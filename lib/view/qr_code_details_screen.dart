@@ -18,10 +18,10 @@ class QrCodeDetailsScreen extends StatelessWidget {
       appBar: AppBarWidget(isHomeButtonActive: true),
       backgroundColor: const Color(0xfff8f9fa),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: CustomizedFloatingButton(
-          buttonIcon: Icons.download_rounded,
-          title: "Save to gallery",
-          onTap: saveToGalleryHandler),
+      // floatingActionButton: CustomizedFloatingButton(
+      //     buttonIcon: Icons.download_rounded,
+      //     title: "Save to gallery",
+      //     onTap: saveToGalleryHandler),
       body: SafeArea(
         child: Column(
           children: [

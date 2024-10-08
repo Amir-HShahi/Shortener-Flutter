@@ -11,6 +11,7 @@ class QrCodesGroupWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var viewModel = context.watch<QrCodeViewModel>();
+    var textTheme = Theme.of(context).textTheme;
     return ConstrainedBox(
       constraints: BoxConstraints(
         maxHeight: scaledHeight(650)
@@ -43,6 +44,17 @@ class QrCodesGroupWidget extends StatelessWidget {
                 ),
               ),
               SizedBox(height: scaledHeight(16)),
+              if(viewModel.qrCodes.isEmpty)
+                Column(
+                  children: [
+                    const _DividerLineWidget(),
+                    SizedBox(height: scaledHeight(16)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [Text("empty", style: textTheme.headlineSmall,),
+                      ],),
+                  ],
+                ),
               for (var model in viewModel.qrCodes)
                 Column(
                   children: [

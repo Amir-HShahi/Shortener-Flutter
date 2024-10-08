@@ -40,11 +40,11 @@ class _DashboardState extends State<Dashboard> {
     var size = MediaQuery.of(context).size;
     var textTheme = Theme.of(context).textTheme;
 
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBarWidget(isHomeButtonActive: false),
-        backgroundColor: const Color.fromARGB(240, 246, 246, 249),
-        body: Stack(
+    return Scaffold(
+      appBar: AppBarWidget(isHomeButtonActive: false),
+      backgroundColor: const Color.fromARGB(240, 246, 246, 249),
+      body: SafeArea(
+        child: Stack(
           children: [
             Positioned.fill(
               child: SingleChildScrollView(

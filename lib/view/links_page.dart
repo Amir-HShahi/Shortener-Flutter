@@ -26,13 +26,14 @@ class _LinksPageState extends State<LinksPage> {
     viewModel.updateLinks();
     var size = MediaQuery.of(context).size;
     var textTheme = Theme.of(context).textTheme;
-    return SafeArea(
-        child: Scaffold(
+    return Scaffold(
       appBar: AppBarWidget(isHomeButtonActive: true),
       backgroundColor: const Color.fromARGB(240, 246, 246, 249),
-      body: LinksScreen(
-        size: size,
-        textTheme: textTheme,
+      body: SafeArea(
+        child: LinksScreen(
+          size: size,
+          textTheme: textTheme,
+        ),
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.fromLTRB(12, 16, 12, 16),
@@ -122,6 +123,6 @@ class _LinksPageState extends State<LinksPage> {
               ],
             )),
       ),
-    ));
+    );
   }
 }

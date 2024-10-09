@@ -44,7 +44,7 @@ class AnalyticsScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                "Clicks and code scans by device",
+                "Clicks ajbdhbdnd code scans by device",
                 style: GoogleFonts.manrope(
                     fontSize: 18, fontWeight: FontWeight.bold),
               ),
